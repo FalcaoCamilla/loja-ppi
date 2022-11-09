@@ -14,10 +14,9 @@
    <p> {{item.id}} | {{item.nome}} </p>
    <p> {{item.descricao}} </p>
    <img src="{{item.imagem}}">
-   <button (click)="exibirPreco(item.id)">Preço</button>
-   <div *ngFor="let item of precos" class="produto">
-      <p> {{item}} </p>
+   <button ng-click="exibirPreco()" (click)="exibirPreco(item.id)">Selecionar</button>
   </div>
-  </div>
-
+   <div *ngIf="exibirPreco">
+      {{msg}}
+   </div>
 </div>

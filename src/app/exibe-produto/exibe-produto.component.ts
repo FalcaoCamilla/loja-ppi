@@ -12,8 +12,8 @@ import { Produto } from '../model/produto';
 export class ExibeProdutoComponent implements OnInit {
 
   produtos: Produto[];
-  precos: Array<any>;
-  newId: string;
+  preco: Array<any>;
+  msg: string;
 
   public consultaForm: FormGroup = this.form.group({
     //id: ['', [Validators.maxLength(5), Validators.required]],
@@ -21,8 +21,8 @@ export class ExibeProdutoComponent implements OnInit {
 
   constructor(private loja: LojaService, private form: FormBuilder) {
     this.produtos = [];
-    this.precos = [];
-    this.newId = '';
+    this.preco = [];
+    this.msg = '';
   }
 
   ngOnInit(): void {
@@ -37,7 +37,8 @@ export class ExibeProdutoComponent implements OnInit {
 
   exibirPreco(id: number){
     this.loja.exibirPreco(id).subscribe(res => {
-      this.precos = res
+      this.preco = res
+      this.msg = `O item custa ${this.preco}`
     });
   }
 }
