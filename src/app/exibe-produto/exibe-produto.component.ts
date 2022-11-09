@@ -32,6 +32,7 @@ export class ExibeProdutoComponent implements OnInit {
   exibirProdutos(id: string){
     this.loja.exibirProduto(id).subscribe(res => {
       this.produtos = res
+      this.msg = ``
     });
   }
 
