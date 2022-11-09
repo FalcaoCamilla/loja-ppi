@@ -12,7 +12,15 @@ export class LojaService {
   constructor(private http: HttpClient) { }
 
   adicionarProduto(prod: Produto): Observable<any> {
-    return this.http.post(`${this.URL}/produtos`, 
+    return this.http.post(`${this.URL}/produtos`,
     prod);
+  }
+
+  exibirProduto(id: string): Observable<any>{
+    return this.http.get(`${this.URL}/produtos/${id}`)
+  }
+
+  exibirPreco(id: number): Observable<any>{
+    return this.http.get(`${this.URL}/produtos/${id}/preco`)
   }
 }

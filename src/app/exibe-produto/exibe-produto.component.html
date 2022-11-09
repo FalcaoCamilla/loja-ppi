@@ -1,0 +1,23 @@
+<h1>Loja <span>PPI</span></h1>
+<form [formGroup]="consultaForm" class="form">
+  <label for="id">Informe o ID do produto para buscar</label>
+  <input type="string" formControlName="id" #id>
+  <button [disabled]="consultaForm.invalid" (click)="exibirProdutos(id.value)">Buscar</button>
+  <!--div dentro do form apenas para centralizar-->
+  <div *ngIf="consultaForm.dirty && consultaForm.invalid" class="invalid">
+    <p class="invalid">Informe um ID válido</p>
+  </div>
+</form>
+
+<div *ngIf="consultaForm.valid">
+  <div *ngFor="let item of produtos" class="produto">
+   <p> {{item.id}} | {{item.nome}} </p>
+   <p> {{item.descricao}} </p>
+   <img src="{{item.imagem}}">
+   <button (click)="exibirPreco(item.id)">Preço</button>
+   <div *ngFor="let item of precos" class="produto">
+      <p> {{item}} </p>
+  </div>
+  </div>
+
+</div>

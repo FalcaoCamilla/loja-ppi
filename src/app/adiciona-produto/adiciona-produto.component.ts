@@ -1,4 +1,4 @@
-import { LojaService } from './../loja.service';
+import { LojaService } from '../model/loja.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -20,7 +20,7 @@ export class AdicionaProdutoComponent implements OnInit {
       "estoque": 100
   };
     this.loja.adicionarProduto(produto).subscribe(
-      res => 
+      res =>
       console.log(res));
   }
 }
